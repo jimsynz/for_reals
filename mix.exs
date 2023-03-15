@@ -34,6 +34,8 @@ defmodule ForReals.MixProject do
     [
       {:ash, "~> 2.6"},
       {:ash_admin, "~> 0.8"},
+      {:ash_authentication, "~>3.10"},
+      {:ash_authentication_phoenix, "~> 1.6"},
       {:ash_postgres, "~> 1.3"},
       {:phoenix, "~> 1.7.1"},
       {:phoenix_ecto, "~> 4.4"},

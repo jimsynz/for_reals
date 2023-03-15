@@ -1,6 +1,7 @@
 defmodule ForRealsWeb.Router do
   use ForRealsWeb, :router
   import AshAdmin.Router
+  use AshAuthentication.Phoenix.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -19,13 +20,18 @@ defmodule ForRealsWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+
+    sign_in_route()
+    sign_out_route(AuthController)
+    reset_route()
+    auth_routes_for ForReals.Accounts.User, to: AuthController
   end
 
   scope "/" do
     pipe_through :browser
-    ash_admin "/admin"
+    ash_admin("/admin")
   end
-  
+
   # Other scopes may use custom stacks.
   # scope "/api", ForRealsWeb do
   #   pipe_through :api

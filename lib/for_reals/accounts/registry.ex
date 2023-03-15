@@ -3,5 +3,6 @@ defmodule ForReals.Accounts.Registry do
 
   entries do
     entry ForReals.Accounts.User
+    entry ForReals.Accounts.Token
   end
 end

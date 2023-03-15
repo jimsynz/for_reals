@@ -17,9 +17,10 @@ defmodule ForReals.Application do
       # Start Finch
       {Finch, name: ForReals.Finch},
       # Start the Endpoint (http/https)
-      ForRealsWeb.Endpoint
+      ForRealsWeb.Endpoint,
       # Start a worker by calling: ForReals.Worker.start_link(arg)
       # {ForReals.Worker, arg}
+      {AshAuthentication.Supervisor, otp_app: :for_reals}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
